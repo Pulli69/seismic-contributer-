@@ -47,6 +47,19 @@ const ROLE_GLOW = {
   "MOD":  "#a855f7",    // purple
   "LEADER": "#8b5a2b"   // brown
 };
+const ROLE_STROKE = {
+  "MAG 1": "#ffffff",   // white
+  "MAG 2": "#f5e6c8",   // cream
+  "MAG 3": "#3cff6a",   // green
+  "MAG 4": "#6bff8f",   // light green
+  "MAG 5": "#0b8f3a",   // dark green
+  "MAG 6": "#ffd84d",   // yellow
+  "MAG 7": "#ff9f1c",   // orange
+  "MAG 8": "#ff3b3b",   // red
+  "MAG 9": "#4da6ff",   // blue
+  "MOD": "#a855f7",     // purple
+  "LEADER": "#8b5a2b"   // brown
+};
 
 function showStep(n) {
   steps.forEach(s => s.classList.remove("active"));
@@ -165,6 +178,7 @@ downloadBtn.onclick = async () => {
   link.href = canvas.toDataURL("image/png");
   link.click();
 };
+
 
 
 
