@@ -1,10 +1,9 @@
 const HTML2CANVAS_OPTIONS = {
-  scale: 2,
-  useCORS: true,
-  allowTaint: true,
-  backgroundColor: null
+  scale: 3,            // This makes the final PNG high-resolution/sharp.
+  useCORS: true,       // Essential for Vercel to see your images/glows.
+  allowTaint: false,   // Prevents security errors during the download.
+  backgroundColor: null // Keeps the background transparent if needed.
 };
-
 
 // CLICK SOUND
 const clickSound = new Audio("./assets/sounds/click.mp3");
@@ -138,21 +137,20 @@ generateBtn.onclick = () => {
   const k = ROLE_MAP[state.role];
   const glow = ROLE_GLOW[state.role];
 
-  // APPLY GLOW COLOR (SINGLE SOURCE)
-  cardPfp.style.setProperty("--glow", glow);
-  cardRole.style.setProperty("--glow", glow);
+  // 1. THE GLOW FIX: Apply a "Spread" shadow directly
+  // This ensures the glow is captured in the PNG
+  cardPfp.style.boxShadow = `0 0 15px 8px ${glow}`;
+  
+  // 2. BADGE GLOW FIX: Color the new glow box we added to HTML
+  const badgeGlow = document.getElementById('badgeGlow');
+  if (badgeGlow) {
+    badgeGlow.style.backgroundColor = glow;
+  }
 
-  // ROLE BADGE IMAGE
+  // Set the images and text
   cardRole.src = `./assets/images/magnitudes/${k}.png`;
-
-  // CARD BACKGROUND
-  card.style.backgroundImage =
-    `url(./assets/images/backgrounds/${k}.jpg)`;
-
-  // PROFILE IMAGE
+  card.style.backgroundImage = `url(./assets/images/backgrounds/${k}.jpg)`;
   cardPfp.style.backgroundImage = `url(${state.pfp})`;
-
-  // TEXT
   cardUser.innerText = state.discord.toUpperCase();
   cTime.innerText = state.time;
   cContent.innerText = state.content;
@@ -161,9 +159,12 @@ generateBtn.onclick = () => {
 
   showStep(steps.length - 1);
 };
+
+/* DOWNLOAD CARD */
 downloadBtn.onclick = async () => {
   playClick();
 
+  // We use the updated options with useCORS for Vercel
   const canvas = await html2canvas(card, HTML2CANVAS_OPTIONS);
 
   const link = document.createElement("a");
@@ -171,6 +172,7 @@ downloadBtn.onclick = async () => {
   link.href = canvas.toDataURL("image/png");
   link.click();
 };
+
 
 
 
