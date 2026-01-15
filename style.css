@@ -165,7 +165,8 @@ input {
 .pill {
   margin: 10px 0 1px;
   padding: 10px 22px;
-  border-radius: 999px;
+border-radius: 9999px;
+
 
   background: linear-gradient(
     to bottom,
@@ -345,4 +346,27 @@ input {
   letter-spacing: 1px !important;
   text-shadow: none !important;
 }
+/* ===============================
+   EXPORT-SAFE PILL GLOW (FINAL)
+   =============================== */
+
+.pill {
+  position: relative;
+  overflow: visible;
+}
+
+.pill::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    ellipse at center,
+    var(--glow) 0%,
+    rgba(255,255,255,0.25) 40%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
 
