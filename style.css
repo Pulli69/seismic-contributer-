@@ -234,71 +234,9 @@ input {
 }
 
 }
-/* FORCE CIRCULAR GLOW — FINAL FIX */
-.role,
-#badgeImg {
-  border-radius: 50%;
-  overflow: visible;
-}
-
-.pfp,
-#cardPfp {
-  border-radius: 50%;
-  overflow: visible;
-}
 
 
-}
-/* ===== FINAL GLOW FIX (DO NOT MODIFY) ===== */
-
-/* ROLE BADGE */
-.role {
-  display: block;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-}
-
-/* PROFILE IMAGE */
-.pfp {
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-}
-/* ===============================
-/* ===============================
-   FINAL GLOW SYSTEM (STABLE)
-   =============================== */
-
-/* ROLE BADGE */
-.role {
-  border-radius: 50%;
-  filter:
-    drop-shadow(0 0 4px var(--glow))
-    drop-shadow(0 0 10px var(--glow))
-    drop-shadow(0 0 18px var(--glow));
-}
-
-/* PROFILE IMAGE */
-.pfp {
-  border-radius: 50%;
-  filter:
-    drop-shadow(0 0 4px var(--glow))
-    drop-shadow(0 0 10px var(--glow))
-    drop-shadow(0 0 18px var(--glow));
-}
-/* ===============================
-   TEXT STROKE (VISIBILITY FIX)
-   =============================== */
-
-.card * {
-  text-shadow:
-    -1px -1px 0 rgba(0,0,0,0.8),
-     1px -1px 0 rgba(0,0,0,0.8),
-    -1px  1px 0 rgba(0,0,0,0.8),
-     1px  1px 0 rgba(0,0,0,0.8),
-     0 2px 4px rgba(0,0,0,0.6);
-}
+ 
 
 /* CARD FOOTER — FINAL OVERRIDE */
 .card footer {
@@ -338,6 +276,35 @@ input {
   z-index: 2;
 
   /* MAG GLOW (PNG SAFE) */
+  filter:
+    drop-shadow(0 0 8px var(--glow))
+    drop-shadow(0 0 16px var(--glow));
+}
+
+/* ===============================
+   CANVAS-SAFE GLOW FIX (FINAL)
+   =============================== */
+
+/* -------- PROFILE IMAGE -------- */
+#cardPfp {
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid white;
+  background-color: #111;
+  z-index: 2;
+
+  box-shadow:
+    0 0 8px var(--glow),
+    0 0 16px var(--glow);
+}
+
+/* -------- MAG BADGE -------- */
+#cardRole {
+  position: relative;
+  border-radius: 50%;
+  border: none;
+  z-index: 2;
+
   filter:
     drop-shadow(0 0 8px var(--glow))
     drop-shadow(0 0 16px var(--glow));
