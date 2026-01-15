@@ -137,6 +137,16 @@ Object.keys(ROLE_MAP).forEach(r => {
 generateBtn.onclick = () => {
   const k = ROLE_MAP[state.role];
   const glow = ROLE_GLOW[state.role];
+  const stroke = ROLE_STROKE[state.role];
+
+// apply glow
+cardPfp.style.setProperty("--glow", glow);
+cardRole.style.setProperty("--glow", glow);
+
+// apply stroke color
+cardPfp.style.setProperty("--stroke", stroke);
+cardRole.style.setProperty("--stroke", stroke);
+
 
   // ROLE BADGE
 cardRole.src = `./assets/images/magnitudes/${k}.png`;
@@ -178,6 +188,7 @@ downloadBtn.onclick = async () => {
   link.href = canvas.toDataURL("image/png");
   link.click();
 };
+
 
 
 
