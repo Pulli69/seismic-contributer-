@@ -1,0 +1,314 @@
+* * {
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+}
+
+/* GLOBAL BACKGROUND */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: url("./assets/images/theme.png") center / cover no-repeat;
+  z-index: -2;
+}
+
+.blur {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+}
+
+/* APP */
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+
+/* STEPS */
+.step {
+  display: none;
+  width: 380px;
+  padding: 26px;
+  border-radius: 24px;
+  background: rgba(25,25,35,0.75);
+  box-shadow: 0 0 50px rgba(255,0,150,0.25);
+  color: white;
+  animation: enter 0.4s ease;
+
+}
+
+
+.step.active {
+  display: block;
+}
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h1,h2,p {
+  text-align: center;
+}
+
+/* BUTTONS */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 999px;
+  border: none;
+  background: hotpink;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  margin-top: 12px;
+}
+
+/* OPTIONS */
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.options div {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1);
+  text-align: center;
+  cursor: pointer;
+}
+
+.options div.active {
+  background: hotpink;
+  color: black;
+}
+
+.grid {
+  grid-template-columns: repeat(3,1fr);
+}
+
+/* PROFILE IMAGE — FORCE PERFECT CIRCLE */
+.pfp {
+  width: 120px;
+  height: 120px;
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  margin: 12px auto;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: block;
+}
+
+
+/* CARD */
+.card {
+  width: 360px;
+  height: 640px;
+  padding: 36px 26px 40px;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+/* INTER TYPOGRAPHY TUNING */
+.card {
+  letter-spacing: 0.4px;
+}
+
+.stat span {
+  letter-spacing: 1px;
+}
+
+.role {
+  width: 84px;
+  margin-top: 6px;
+}
+
+.username {
+  margin: 6px 0 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* MESSAGE BOX */
+/* BLACK GLOSSY MESSAGE PILL */
+.pill {
+  margin: 10px 0 1px;
+  padding: 10px 22px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.65)
+  );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    0 4px 12px rgba(0,0,0,0.6);
+
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+}
+
+}
+
+/* STATS */
+.stats {
+  width: 100%;
+}
+.stats {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stat {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.stat span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.stat b {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+}
+
+
+
+
+
+.app::before,
+.app::after {
+  display: none !important;
+}
+/* 🔥 REMOVE SOLID BLACK WRAPPER BEHIND FINAL CARD */
+.step:last-of-type {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+}
+/* FORCE CIRCULAR GLOW — FINAL FIX */
+.role,
+#badgeImg {
+  border-radius: 50%;
+  overflow: visible;
+}
+
+.pfp,
+#cardPfp {
+  border-radius: 50%;
+  overflow: visible;
+}
+
+
+}
+/* ===== FINAL GLOW FIX (DO NOT MODIFY) ===== */
+
+/* ROLE BADGE */
+.role {
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* PROFILE IMAGE */
+.pfp {
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+/* ===============================
+/* ===============================
+   FINAL GLOW SYSTEM (STABLE)
+   =============================== */
+
+/* ROLE BADGE */
+.role {
+  border-radius: 50%;
+  filter:
+    drop-shadow(0 0 4px var(--glow))
+    drop-shadow(0 0 10px var(--glow))
+    drop-shadow(0 0 18px var(--glow));
+}
+
+/* PROFILE IMAGE */
+.pfp {
+  border-radius: 50%;
+  filter:
+    drop-shadow(0 0 4px var(--glow))
+    drop-shadow(0 0 10px var(--glow))
+    drop-shadow(0 0 18px var(--glow));
+}
+/* ===============================
+   TEXT STROKE (VISIBILITY FIX)
+   =============================== */
+
+.card * {
+  text-shadow:
+    -1px -1px 0 rgba(0,0,0,0.8),
+     1px -1px 0 rgba(0,0,0,0.8),
+    -1px  1px 0 rgba(0,0,0,0.8),
+     1px  1px 0 rgba(0,0,0,0.8),
+     0 2px 4px rgba(0,0,0,0.6);
+}
+
+/* CARD FOOTER — FINAL OVERRIDE */
+.card footer {
+  margin-top: auto !important;
+
+  font-size: 9px !important;
+  letter-spacing: 1px !important;
+  opacity: 0.35 !important;
+
+  text-transform: uppercase;
+  text-align: center;
+}
+

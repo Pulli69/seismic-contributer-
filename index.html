@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <title>Seismic Contribution Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="blur"></div>
+
+<div class="app">
+
+  <!-- STEP 0: HOME -->
+  <section class="step active">
+    <h1>SEISMIC CONTRIBUTOR CREDENTIAL</h1>
+    <p>Generate your unofficial Seismic community contribution card.</p>
+    <button type="button" data-next>BEGIN</button>
+  </section>
+
+  <!-- STEP 1: IDENTITY -->
+  <section class="step">
+    <h2>DISCORD USERNAME</h2>
+    <input id="discordInput" placeholder="DISCORD USERNAME">
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+  <!-- STEP 2: PROFILE -->
+  <section class="step">
+    <h2>PROFILE IMAGE</h2>
+    <input type="file" accept="image/*" id="pfpInput">
+    <div id="pfpPreview" class="pfp"></div>
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+
+
+  <!-- STEP 3: TIME -->
+  <section class="step">
+    <h2>CONTRIBUTION TIME</h2>
+    <div class="options">
+      <div data-time="< 1 MONTH">LESS THAN 1 MONTH</div>
+      <div data-time="1–3 MONTHS">1–3 MONTHS</div>
+      <div data-time="3–6 MONTHS">3–6 MONTHS</div>
+      <div data-time="6+ MONTHS">6+ MONTHS</div>
+    </div>
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+  <!-- STEP 4: CONTENT -->
+  <section class="step">
+    <h2>CONTENT</h2>
+    <input type="range" min="1" max="300" id="contentRange">
+    <div id="contentVal">1</div>
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+  <!-- STEP 5: MESSAGES -->
+  <section class="step">
+    <h2>MESSAGES</h2>
+    <input type="range" min="1000" max="150000" step="1000" id="msgRange">
+    <div id="msgVal">1000</div>
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+  <!-- STEP 6: ART -->
+  <section class="step">
+    <h2>ARTWORK</h2>
+    <input type="range" min="1" max="300" id="artRange">
+    <div id="artVal">1</div>
+    <button type="button" data-next>NEXT</button>
+  </section>
+
+  <!-- STEP 7: ROLE -->
+  <section class="step">
+    <h2>ROLE</h2>
+    <div class="options grid" id="roleGrid"></div>
+    <button type="button" id="generateBtn">GENERATE CARD</button>
+  </section>
+
+  <!-- STEP 8: FINAL CARD -->
+  <section class="step">
+    <div id="card" class="card">
+      <img id="cardRole" class="role">
+      <div id="cardPfp" class="pfp"></div>
+      <div id="cardUser" class="username"></div>
+
+      <div class="pill">PROUD SEISMIC MEMBER</div>
+
+      <div class="stats">
+        <div class="stat"><span>CONTRIBUTION TIME</span><b id="cTime"></b></div>
+        <div class="stat"><span>CONTENT</span><b id="cContent"></b></div>
+        <div class="stat"><span>MESSAGES</span><b id="cMessages"></b></div>
+        <div class="stat"><span>ARTWORK</span><b id="cArt"></b></div>
+      </div>
+
+      <footer>ISSUED BY COMMUNITY CONTRIBUTORS</footer>
+    </div>
+
+    <button type="button" id="downloadBtn">DOWNLOAD CARD</button>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
+
