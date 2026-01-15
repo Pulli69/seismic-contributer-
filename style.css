@@ -310,3 +310,39 @@ input {
     drop-shadow(0 0 16px var(--glow));
 }
 
+/* ===============================
+   EXPORT-SAFE MAG GLOW (PNG FIX)
+   =============================== */
+
+.role-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.role-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--glow) 0%,
+    rgba(255,255,255,0.35) 40%,
+    rgba(255,255,255,0.15) 60%,
+    transparent 75%
+  );
+  z-index: 0;
+}
+
+#cardRole {
+  position: relative;
+  z-index: 1;
+}
+/* FOOTER VISUAL RESTORE */
+.card footer {
+  opacity: 0.35 !important;
+  font-size: 9px !important;
+  letter-spacing: 1px !important;
+  text-shadow: none !important;
+}
+
