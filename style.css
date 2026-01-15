@@ -368,5 +368,24 @@ border-radius: 9999px;
   );
   z-index: -1;
 }
+.card-footer {
+  margin-top: auto;
+  font-size: 9px;
+  letter-spacing: 1px;
+  opacity: 0.35;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card-footer a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.card-footer a:hover {
+  opacity: 1;
+}
+
 
 
