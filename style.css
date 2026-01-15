@@ -364,3 +364,55 @@ input {
   z-index: -1;
 }
 
+/* ===============================
+   FINAL: PROFILE = GLOW + STROKE
+   MAG = GLOW ONLY
+   =============================== */
+
+/* ---------- PROFILE IMAGE ---------- */
+#cardPfp {
+  position: relative;
+  border-radius: 50%;
+  border: 2px solid white; /* STROKE */
+  z-index: 2;
+}
+
+/* PROFILE GLOW */
+#cardPfp::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--glow) 0%,
+    rgba(255,255,255,0.3) 40%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* ---------- MAG BADGE ---------- */
+#cardRole {
+  position: relative;
+  border-radius: 50%;
+  border: none;           /* ❌ NO STROKE */
+  z-index: 2;
+  overflow: visible;
+}
+
+/* MAG GLOW ONLY */
+#cardRole::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--glow) 0%,
+    rgba(255,255,255,0.35) 45%,
+    transparent 75%
+  );
+  z-index: -1;
+}
+
