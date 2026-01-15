@@ -1,8 +1,8 @@
-* * {
+/* 1. RESET & BASE STYLES */
+* {
   box-sizing: border-box;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
 
 body {
   margin: 0;
@@ -10,7 +10,6 @@ body {
   overflow: hidden;
 }
 
-/* GLOBAL BACKGROUND */
 .bg {
   position: fixed;
   inset: 0;
@@ -26,19 +25,15 @@ body {
   z-index: -1;
 }
 
-/* APP */
+/* 2. APP & STEPS */
 .app {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: transparent;
-  padding: 0;
-  border-radius: 0;
 }
 
-
-/* STEPS */
 .step {
   display: none;
   width: 380px;
@@ -48,9 +43,7 @@ body {
   box-shadow: 0 0 50px rgba(255,0,150,0.25);
   color: white;
   animation: enter 0.4s ease;
-
 }
-
 
 .step.active {
   display: block;
@@ -61,72 +54,7 @@ body {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-h1,h2,p {
-  text-align: center;
-}
-
-/* BUTTONS */
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 16px;
-  border-radius: 999px;
-  border: none;
-  background: hotpink;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  margin-top: 12px;
-}
-
-/* OPTIONS */
-.options {
-  display: grid;
-  gap: 12px;
-}
-
-.options div {
-  padding: 14px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.1);
-  text-align: center;
-  cursor: pointer;
-}
-
-.options div.active {
-  background: hotpink;
-  color: black;
-}
-
-.grid {
-  grid-template-columns: repeat(3,1fr);
-}
-
-/* PROFILE IMAGE — FORCE PERFECT CIRCLE */
-.pfp {
-  width: 120px;
-  height: 120px;
-  aspect-ratio: 1 / 1;
-
-  border-radius: 50%;
-  margin: 12px auto;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: block;
-}
-
-
-/* CARD */
+/* 3. CARD DESIGN */
 .card {
   width: 360px;
   height: 640px;
@@ -138,19 +66,7 @@ input {
   flex-direction: column;
   align-items: center;
   color: white;
-}
-/* INTER TYPOGRAPHY TUNING */
-.card {
   letter-spacing: 0.4px;
-}
-
-.stat span {
-  letter-spacing: 1px;
-}
-
-.role {
-  width: 84px;
-  margin-top: 6px;
 }
 
 .username {
@@ -160,36 +76,19 @@ input {
   text-transform: uppercase;
 }
 
-/* MESSAGE BOX */
-/* BLACK GLOSSY MESSAGE PILL */
 .pill {
   margin: 10px 0 1px;
   padding: 10px 22px;
-border-radius: 9999px;
-
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.65)
-  );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.15),
-    0 4px 12px rgba(0,0,0,0.6);
-
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 4px 12px rgba(0,0,0,0.6);
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: white;
 }
 
-}
-
-/* STATS */
-.stats {
-  width: 100%;
-}
+/* 4. STATS AREA */
 .stats {
   width: 100%;
   margin-top: 20px;
@@ -214,182 +113,7 @@ border-radius: 9999px;
   font-weight: 700;
 }
 
-}
-
-
-
-
-
-.app::before,
-.app::after {
-  display: none !important;
-}
-/* 🔥 REMOVE SOLID BLACK WRAPPER BEHIND FINAL CARD */
-.step:last-of-type {
-  background: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-}
-
-
- 
-
-/* CARD FOOTER — FINAL OVERRIDE */
-.card footer {
-  margin-top: auto !important;
-
-  font-size: 9px !important;
-  letter-spacing: 1px !important;
-  opacity: 0.35 !important;
-
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* ===============================
-   CANVAS-SAFE GLOW FIX (FINAL)
-   =============================== */
-
-/* -------- PROFILE IMAGE -------- */
-#cardPfp {
-  position: relative;
-  border-radius: 50%;
-  border: 2px solid white;     /* STROKE */
-  background-color: #111;     /* BLOCK blur bleed */
-  z-index: 2;
-
-  /* PROFILE GLOW (PNG SAFE) */
-  box-shadow:
-    0 0 8px var(--glow),
-    0 0 16px var(--glow);
-}
-
-/* -------- MAG BADGE -------- */
-#cardRole {
-  position: relative;
-  border-radius: 50%;
-  border: none;               /* NO STROKE */
-  z-index: 2;
-
-  /* MAG GLOW (PNG SAFE) */
-  filter:
-    drop-shadow(0 0 8px var(--glow))
-    drop-shadow(0 0 16px var(--glow));
-}
-
-/* ===============================
-   CANVAS-SAFE GLOW FIX (FINAL)
-   =============================== */
-
-/* -------- PROFILE IMAGE -------- */
-#cardPfp {
-  position: relative;
-  border-radius: 50%;
-  border: 2px solid white;
-  background-color: #111;
-  z-index: 2;
-
-  box-shadow:
-    0 0 8px var(--glow),
-    0 0 16px var(--glow);
-}
-
-/* -------- MAG BADGE -------- */
-#cardRole {
-  position: relative;
-  border-radius: 50%;
-  border: none;
-  z-index: 2;
-
-  filter:
-    drop-shadow(0 0 8px var(--glow))
-    drop-shadow(0 0 16px var(--glow));
-}
-
-/* ===============================
-   EXPORT-SAFE MAG GLOW (PNG FIX)
-   =============================== */
-
-.role-wrap {
-  position: relative;
-  display: inline-block;
-}
-
-.role-wrap::before {
-  content: "";
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    var(--glow) 0%,
-    rgba(255,255,255,0.35) 40%,
-    rgba(255,255,255,0.15) 60%,
-    transparent 75%
-  );
-  z-index: 0;
-}
-
-#cardRole {
-  position: relative;
-  z-index: 1;
-}
-/* FOOTER VISUAL RESTORE */
-.card footer {
-  opacity: 0.35 !important;
-  font-size: 9px !important;
-  letter-spacing: 1px !important;
-  text-shadow: none !important;
-}
-/* ===============================
-   EXPORT-SAFE PILL GLOW (FINAL)
-   =============================== */
-
-.pill {
-  position: relative;
-  overflow: visible;
-}
-
-.pill::before {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border-radius: 9999px;
-  background: radial-gradient(
-    ellipse at center,
-    var(--glow) 0%,
-    rgba(255,255,255,0.25) 40%,
-    transparent 70%
-  );
-  z-index: -1;
-}
-.card-footer {
-  margin-top: auto;
-  font-size: 9px;
-  letter-spacing: 1px;
-  opacity: 0.35;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.card-footer a {
-  color: white;
-  text-decoration: none;
-  opacity: 0.6;
-}
-
-.card-footer a:hover {
-  opacity: 1;
-}
-
-/* --- PNG DOWNLOAD FIXES --- */
-
-/* 1. The Safety Container for the Profile Pic */
+/* 5. DOWNLOAD GLOW FIXES (CLEANED UP) */
 .pfp-container {
   width: 160px; 
   height: 160px;
@@ -397,16 +121,21 @@ border-radius: 9999px;
   justify-content: center;
   align-items: center;
   margin: 5px auto;
-  overflow: visible !important; /* Vital for html2canvas */
+  overflow: visible !important;
 }
 
-/* 2. Remove old margins from PFP so container handles it */
 #cardPfp {
-  margin: 0 !important;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   border: 2px solid white;
+  background-color: #111;
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+  margin: 0 !important;
 }
 
-/* 3. The Safety Glow for the Badge */
 .role-wrap {
   position: relative;
   display: flex;
@@ -421,14 +150,55 @@ border-radius: 9999px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  filter: blur(15px); /* This creates the soft glow */
+  filter: blur(15px);
   opacity: 0.8;
   z-index: 1;
 }
 
 #cardRole {
+  width: 84px;
   position: relative;
-  z-index: 2; /* Keeps the icon on top of the glow */
+  z-index: 2;
 }
 
+/* 6. FOOTER & UI FIXES */
+.card-footer {
+  margin-top: auto;
+  font-size: 9px;
+  letter-spacing: 1px;
+  opacity: 0.35;
+  text-transform: uppercase;
+  text-align: center;
+}
 
+.card-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 999px;
+  border: none;
+  background: hotpink;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  margin-top: 12px;
+}
+
+/* Removed Step Wrapper Background for Final Step */
+.step:last-of-type {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: auto !important;
+}
