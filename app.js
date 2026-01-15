@@ -137,22 +137,13 @@ Object.keys(ROLE_MAP).forEach(r => {
 generateBtn.onclick = () => {
   const k = ROLE_MAP[state.role];
   const glow = ROLE_GLOW[state.role];
-  const stroke = ROLE_STROKE[state.role];
 
-// apply glow
-cardPfp.style.setProperty("--glow", glow);
-cardRole.style.setProperty("--glow", glow);
-
-// apply stroke color
-cardPfp.style.setProperty("--stroke", stroke);
-cardRole.style.setProperty("--stroke", stroke);
-
-
-  // ROLE BADGE
-cardRole.src = `./assets/images/magnitudes/${k}.png`;
-
+  // APPLY GLOW COLOR (SINGLE SOURCE)
+  cardPfp.style.setProperty("--glow", glow);
   cardRole.style.setProperty("--glow", glow);
-  cardRole.classList.add("glow");
+
+  // ROLE BADGE IMAGE
+  cardRole.src = `./assets/images/magnitudes/${k}.png`;
 
   // CARD BACKGROUND
   card.style.backgroundImage =
@@ -160,8 +151,6 @@ cardRole.src = `./assets/images/magnitudes/${k}.png`;
 
   // PROFILE IMAGE
   cardPfp.style.backgroundImage = `url(${state.pfp})`;
-  cardPfp.style.setProperty("--glow", glow);
-  cardPfp.classList.add("glow");
 
   // TEXT
   cardUser.innerText = state.discord.toUpperCase();
@@ -172,16 +161,10 @@ cardRole.src = `./assets/images/magnitudes/${k}.png`;
 
   showStep(steps.length - 1);
 };
-
 downloadBtn.onclick = async () => {
   playClick();
 
-  const canvas = await html2canvas(card, {
-    scale: 2,
-    useCORS: true,
-    allowTaint: true,
-    backgroundColor: null
-  });
+  const canvas = await html2canvas(card, HTML2CANVAS_OPTIONS);
 
   const link = document.createElement("a");
   link.download = "seismic-card.png";
